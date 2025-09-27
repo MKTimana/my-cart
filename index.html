@@ -9,12 +9,53 @@
 </head>
 
 <body>
+    <header>
+        <h1>Carrinho digital</h1>
+    </header>
 
+    <main class="wrap" aria-live="polite">
+        <section class="card" aria-labelledby="prod-title">
+            <h2 id="prod-title">Produtos</h2>
 
-    <script src="assets/js/controller/controller.js"></script>
-    <script src="assets/js/model/model.js"></script>
-    <script src="assets/js/view/view.js"></script>
-    <script src="assets/js/script.js"></script>
+            <!-- Cadastro de produtos -->
+            <form id="productRegister" autocomplete="off">
+                <label for="prodName">Nome do produto</label>
+                <input id="prodName" name="nameProd" type="text" placeholder="Caneta..." required />
+
+                <label for="prodPrice">Preço do produto</label>
+                <input id="prodPrice" name="priceProd" type="number" min="0" step="0.01" placeholder="200.99"
+                    required />
+
+                <button type="submit">Adicionar ao carrinho</button>
+                <p id="registerError" class="hint" aria-live="polite"></p>
+            </form>
+
+            <!-- productos existentes / cadastrados -->
+            <ul id="prodList" aria-label="Lista de produtos"></ul>
+            <p id="prodEmpty" class="empty">Sem produtos disponíveis. Por favor adicione pelo formulário!</p>
+        </section>
+
+        <section class="card" aria-labelledby="cart-title">
+            <h2 id="cart-title">Carrinho</h2>
+
+            <!-- Produtos no adicionados ao carrinho -->
+            <ul id="cartItems" aria-label="Itens do carrinho"></ul>
+            <p id="cartEmpty" class="empty">Sem produtos adicionados.</p>
+
+            <div class="cartFooter">
+                <span id="cartQty" class="badge">0 itens</span>
+                <span id="cartTotal" class="badge">Total: 0.00</span>
+                <button id="checkoutBtn" class="checkout">Terminar compra</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts para serem usados na pagina, colocamos o defer para dizer que os scripts devem ser 'carregados' junto com a página -->
+    <script src="assets/js/model/model.js" defer></script>
+    <script src="assets/js/view/view.js" defer></script>
+    <script src="assets/js/controller/controller.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
 </body>
 
 </html>
