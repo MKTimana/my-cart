@@ -1,7 +1,7 @@
 window.Model = {
     _id: 1,
-    productos: [], // aqui se espera { id, produto, preço}
-    carrinho: [], // aqui se espera { id, carrinho, preço, qty}
+    productos: [], // aqui se espera { id, name, price}
+    carrinho: [], // aqui se espera { id, name, price, qty}
 
     //metodo Adicionar producto
     adicionarProduto(name, price) {
@@ -10,12 +10,12 @@ window.Model = {
             name,
             price: Number(price)
         };
-        this.productos.push(p);
-        return p;
+        this.productos.push(prod);
+        return prod;
     },
 
     // Metodo listar produtos existentes
-    listarProduto() {
+    listarProdutos() {
         return [...this.productos];
     },
 
@@ -52,7 +52,7 @@ window.Model = {
     mudarQty(prodId, q) {
         const item = this.carrinho.find(x => x.id === prodId);
         if (!item) return;
-        item.qty += devicePixelRatio;
+        item.qty += q;
         if (item.qty <= 0) this.removerDoCarrinho(prodId)
     },
 
