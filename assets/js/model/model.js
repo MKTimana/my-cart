@@ -11,7 +11,17 @@ window.Model = {
             price: Number(price)
         };
         this.productos.push(prod);
+        this.setProdutos(prod);
         return prod;
+    },
+
+    getProdutos(id){
+        return localStorage.getItem(`Produto_${i}`);
+    },
+
+    //metodo para adicionar o produto na localstorage
+    setProdutos(newProd){
+        localStorage.setItem(`Produto_${newProd.id}`, JSON.stringify(newProd));
     },
 
     // Metodo listar produtos existentes
