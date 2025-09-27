@@ -141,6 +141,9 @@ li:last-child{ border-bottom: 0; }
 
 .checkout{
   background: var(--danger);
+  border: 1px solid #be123c;
+  padding: 6px 10px;
+  border-radius: 999px;
 }
 .checkout:hover{
   background: #be123c;
